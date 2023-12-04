@@ -24,11 +24,13 @@
       <a href="{{url_for('login')}}" class="w3-bar-item w3-button w3-padding-large">Login</a>
       <a href="{{url_for('register')}}" class="w3-bar-item w3-button w3-padding-large">Register</a>
     </div>
+    
   </div>
+  
     <div class="login-page">
       <div class="formSection">
         <form class="register-form">
-          <input type="text" placeholder="name"/>
+          <input type="text" placeholder="email"/>
           <input type="password" placeholder="password"/>
         </form>
         <form class="login-form">
@@ -43,6 +45,14 @@
       $('.message a').click(function(){
         $('form').animate({height: "toggle", opacity: "toggle"}, "slow");
      });
+     function myFunction() {
+      var x = document.getElementById("navDemo");
+      if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+      } else { 
+        x.className = x.className.replace(" w3-show", "");
+      }
+    };
     <script/>
   </div>
 </body>
