@@ -1,5 +1,5 @@
 print("hello world")
-from flask import Flask
+from flask import Flask, render_template, request, url_for
 
 
 app = Flask(__name__)
@@ -7,4 +7,25 @@ app = Flask(__name__)
 
 @app.route("/")
 def home():
-    return "index page"
+    return render_template("index.html")
+
+
+@app.route("/user/<name>")
+def user(name):
+    return render_template("user.html", username=name)
+
+
+@app.route("/login")
+def login():
+    return render_template("login.html")
+
+
+@app.route("/register")
+def register():
+    return render_template("register.html")
+
+
+# error handling
+@app.errorhandler(404)
+def pageNotFound(error):
+    return render_template("error.html")
