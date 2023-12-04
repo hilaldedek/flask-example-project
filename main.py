@@ -25,6 +25,11 @@ def register():
     return render_template("register.html")
 
 
+@app.route("/post/<url>")
+def post(url):
+    return render_template("post.html", url=url)
+
+
 # error handling
 @app.errorhandler(404)
 def pageNotFound(error):

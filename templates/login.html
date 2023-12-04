@@ -4,22 +4,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}"/>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Document</title>
 </head>
 <body>
-    <h1>LOGIN PAGE</h1>
-    <div class="mb-3">
-      <label for="" class="form-label" id="textBox" >Name</label>
-      <input type="text"
-        class="form-control" name="" aria-describedby="helpId" placeholder="">
-        <label for="" class="form-label" id="textBox" >
-            Password
-        </label>
-      <input type="password"
-        class="form-control" name="" aria-describedby="helpId" placeholder="">
-        <input type="submit"
-        class="form-control" name="" aria-describedby="helpId" placeholder="">
-
+  <div class="w3-top">
+    <div class="w3-bar w3-red w3-card w3-left-align w3-large">
+      <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+      <a href="{{url_for('home')}}" class="w3-bar-item w3-button w3-padding-large w3-white">Home</a>
+      <a href="{{url_for('login')}}" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Login</a>
+      <a href="{{url_for('register')}}" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Register</a>
     </div>
+  
+    <!-- Navbar on small screens -->
+    <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
+      <a href="{{url_for('login')}}" class="w3-bar-item w3-button w3-padding-large">Login</a>
+      <a href="{{url_for('register')}}" class="w3-bar-item w3-button w3-padding-large">Register</a>
+    </div>
+  </div>
+    <div class="login-page">
+      <div class="formSection">
+        <form class="register-form">
+          <input type="text" placeholder="name"/>
+          <input type="password" placeholder="password"/>
+        </form>
+        <form class="login-form">
+          <input type="email" placeholder="email"/>
+          <input type="password" placeholder="password"/>
+          <button>login</button>
+          <p class="message">Not registered? <a href="{{url_for('register')}}">Create an account</a></p>
+        </form>
+      </div>
+    </div>
+    <script>
+      $('.message a').click(function(){
+        $('form').animate({height: "toggle", opacity: "toggle"}, "slow");
+     });
+    <script/>
+  </div>
 </body>
 </html>
