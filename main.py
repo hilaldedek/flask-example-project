@@ -1,13 +1,16 @@
 print("hello world")
-from flask import Flask, jsonify, render_template, request, url_for
+from flask import Flask, jsonify, render_template, request
+from pymongo import MongoClient
 import pymongo
 
 
 app = Flask(__name__)
 
-myclient = pymongo.MongoClient("mongodb://localhost:27017/")
-
-mydb = myclient["mydatabase"]
+app.config["SECRET_KEY"] = "jşlajdiğeflsğflsğ"
+myclient = pymongo.MongoClient(
+    "mongodb+srv://Hilal:<password>@hilitopage.hti7p3k.mongodb.net/"
+)
+print(myclient.list_database_names())
 
 
 @app.route("/")
@@ -30,17 +33,14 @@ def register():
     return render_template("register.html")
 
 
-@app.route("/welcome", methods=["GET", "POST"])
+@app.route("/welcome/", methods=["GET", "POST"])
 def welcome():
     if request.method == "POST":
-        req_Json = request.json
-        username = req_Json["username"]
-        email = req_Json["email"]
-        password = req_Json["password"]
-        return jsonify({"response": "welcome" + username + email + password})
+        username = request.form["username"]
+        return render_template("welcome.html", name=username)
 
     else:
-        return jsonify({"response": "get request called"})
+        return render_template("post.html")
 
 
 @app.route("/post/<url>")

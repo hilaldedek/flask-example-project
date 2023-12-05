@@ -47,7 +47,7 @@
   transition: all 0.3 ease;
   cursor: pointer;
 }
-.formSection button:hover,.form button:active,.form button:focus {
+.formSection button:hover,.formSection button:active,.formSection button:focus {
   background: #43A047;
 }
 .formSection .message {
