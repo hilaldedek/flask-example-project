@@ -48,7 +48,6 @@ def welcome():
         username = request.form["username"]
         email = request.form["email"]
         password = request.form["password"]
-
         new_user = User(
             email=f"{email}", username=f"{username}", password=f"{password}"
         )
